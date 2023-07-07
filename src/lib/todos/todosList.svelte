@@ -34,6 +34,10 @@
       noResults = false;
     }
   };
+
+  function searchInit(el: HTMLInputElement){
+    el.focus()
+  }
 </script>
 
 <div>
@@ -60,6 +64,7 @@
           type="text"
           class="input-text todoSearchInput"
           id="todoSearch"
+          use:searchInit
           bind:value={searchTerm}
           on:input={searchTodos}
           placeholder="Search for task..."

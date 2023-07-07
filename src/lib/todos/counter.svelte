@@ -3,8 +3,8 @@
 
 	export let todos: TodoItem[];
 
-	const totalCount = todos.length;
-	const completedTasks = todos.filter((todo) => todo.completed === true).length;
+	$: totalCount = todos.length;
+	$: completedTasks = todos.filter((todo) => todo.completed === true).length;
 	const noTasks = totalCount === 0;
 </script>
 

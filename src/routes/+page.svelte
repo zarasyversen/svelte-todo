@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
 
   import Header from '../lib/header.svelte';
   import Counter from '../lib/todos/counter.svelte';
@@ -8,13 +7,9 @@
   import AddTodo from '../lib/todos/addTodo.svelte';
   import TodosList from '$lib/todos/todosList.svelte';
 
-  //let todos: TodoItem[] = [{name: 'hej', id:1, completed: false}, {name: 'hej2', id:3, completed: true}];
-  let todos: TodoItem[] = [];
 
-  const getInitialTodos = () => {
-    const temp = localStorage.getItem('todos');
-    return temp ? JSON.parse(temp) : [];
-  };
+  import {storedTodos} from '../lib/store';
+  let todos = $storedTodos.sort((a, b) => b.id - a.id);
 
   const handleNewTodo = (event: CustomEvent) => {
     addNewTodoItem(event.detail.title);
@@ -46,6 +41,7 @@
 
   const deletingTodo = (event: CustomEvent) => {
     todos = todos.filter((todo) => todo.id !== event.detail.id);
+    storedTodos.set(todos);
   };
 
   const editingTodo = (event: CustomEvent) => {
@@ -58,6 +54,7 @@
       }
       return todo;
     });
+    storedTodos.set(todos);
   };
 
   const getCurrentDay = () => {
@@ -77,11 +74,10 @@
 
   const setTodos = (newTodo: TodoItem) => {
     todos = [...todos, newTodo];
+    storedTodos.set(todos);
   };
 
-  onMount(() => {
-    todos = getInitialTodos();
-  });
+
 </script>
 
 <div class="container">

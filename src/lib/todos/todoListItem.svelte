@@ -34,7 +34,7 @@
   };
 </script>
 
-<li class="item" class:is-complete={todo.completed}>
+<li class="item">
   <div class="item__inner" style:display={isEditing ? 'none' : 'flex'}>
     <label class="checkboxLabel">
       <span class="sr-only">Task completed</span>
@@ -49,7 +49,7 @@
         on:change={() => handleCheck(todo.id)}
       />
     </label>
-    <div class="details">
+    <div class="details" class:is-complete={todo.completed}>
       <p>{todo.name}</p>
       <small>
         {#if todo.updated}
