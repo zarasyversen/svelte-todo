@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Header from '../lib/header.svelte';
+  import Header from '../lib/layout/header.svelte';
   import Counter from '../lib/todos/counter.svelte';
   import EmptyList from '../lib/todos/emptyList.svelte';
   import type { TodoItem } from '../types/TodoItem';
@@ -85,12 +85,14 @@
         <EmptyList />
       {/if}
       <AddTodo on:addTodo={handleNewTodo} hasTodos={todos.length > 0} />
-      <TodosList
-        {todos}
-        on:completeTodo={completingTodo}
-        on:editTodo={editingTodo}
-        on:deleteTodo={deletingTodo}
-      />
+      {#if todos.length > 0}
+        <TodosList
+          {todos}
+          on:completeTodo={completingTodo}
+          on:editTodo={editingTodo}
+          on:deleteTodo={deletingTodo}
+        />
+      {/if}
     </div>
   </div>
 </div>

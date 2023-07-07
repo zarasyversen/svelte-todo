@@ -114,95 +114,40 @@ svg {
   color: #000;
 }
 
-.about-page {
+.content-page {
   display: flex;
   flex-direction: column;
   margin: 50px 16px;
 }
 
-.about-page main,
-.about-page aside {
+.content-page main {
   background: var(--white);
   border-radius: var(--border-radius);
   padding: 16px;
 }
 
-.about-page ul {
-  padding-left: 20px;
-}
 
-.about-page nav ul {
-  list-style: none;
-  display: flex;
-  padding-left: 0;
-}
-
-.about-page nav li {
-  margin: 0 30px 0 0;
-}
-
-.about-page a {
-  color: var(--black);
-  text-decoration: none;
-}
-
-.about-page a.active,
-.about-page a:hover,
-.about-page a:focus {
-  text-decoration: underline;
-}
-
-.about-page a.active {
-  font-weight: 600;
-}
-
-.about-page .section {
+.content-page .section {
   margin: 20px 0;
-}
-
-.about-page .section a {
-  text-decoration: underline;
-}
-
-.about-page .sectionHeading {
-  margin-bottom: 10px;
-}
-
-.not-found {
-  max-width: 600px;
-  background: var(--white);
-  padding: 16px;
-  border-radius: var(--border-radius);
-  margin: 20px auto;
   text-align: center;
 }
 
-.not-found h1 {
-  font-size: 2em;
-  margin: 20px 0 30px;
+
+.content-page .section h1 {
+  font-size: 3em;
+}
+
+.content-page .section a {
+  text-decoration: underline;
+}
+
+.content-page .sectionHeading {
+  margin-bottom: 10px;
 }
 
 @media screen and (min-width: 768px) {
-  .about-page {
-    flex-direction: row;
-    justify-content: space-between;
+  .content-page {
     max-width: 1000px;
     margin: 50px auto;
-  }
-
-  .about-page main {
-    flex-basis: 70%;
-  }
-
-  .about-page aside {
-    flex-basis: 25%;
-  }
-
-  .about-page nav ul {
-    flex-direction: column;
-  }
-
-  .about-page nav li {
-    margin: 20px 0;
   }
 }
