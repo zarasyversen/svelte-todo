@@ -1,5 +1,4 @@
 <script lang="ts">
-
   import Header from '../lib/header.svelte';
   import Counter from '../lib/todos/counter.svelte';
   import EmptyList from '../lib/todos/emptyList.svelte';
@@ -7,8 +6,7 @@
   import AddTodo from '../lib/todos/addTodo.svelte';
   import TodosList from '$lib/todos/todosList.svelte';
 
-
-  import {storedTodos} from '../lib/store';
+  import { storedTodos } from '../lib/store';
   let todos = $storedTodos.sort((a, b) => b.id - a.id);
 
   const handleNewTodo = (event: CustomEvent) => {
@@ -76,8 +74,6 @@
     todos = [...todos, newTodo];
     storedTodos.set(todos);
   };
-
-
 </script>
 
 <div class="container">

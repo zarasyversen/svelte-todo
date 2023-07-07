@@ -1,9 +1,8 @@
 <script>
-    // logic goes here
-  </script>
-  
-<!-- markup -->
-  
-  <style>
+  // logic goes here
+</script>
 
-  </style>
+<!-- markup -->
+
+<style>
+</style>

@@ -35,8 +35,8 @@
     }
   };
 
-  function searchInit(el: HTMLInputElement){
-    el.focus()
+  function searchInit(el: HTMLInputElement) {
+    el.focus();
   }
 </script>
 

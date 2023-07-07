@@ -55,7 +55,7 @@ body {
   margin-bottom: 30px;
 }
 
- .button {
+.button {
   background: var(--blue);
   padding: 10px 20px;
   cursor: pointer;
@@ -65,17 +65,17 @@ body {
   min-height: 45px;
   font-size: 1em;
   font-family: var(--font-family);
- }
+}
 
- .button:hover{
+.button:hover {
   background-color: var(--light-blue);
- }
+}
 
- .button:focus {
-   outline: 1px dashed var(--black);
- }
+.button:focus {
+  outline: 1px dashed var(--black);
+}
 
- svg {
+svg {
   width: 20px;
   height: 20px;
   transition: fill 0.3s;
@@ -90,11 +90,11 @@ body {
 
 .icon-button svg {
   margin-left: 10px;
-  transition: transform .3s;
-  transform: scale(.9);
+  transition: transform 0.3s;
+  transform: scale(0.9);
 }
 
-.icon-button:hover svg, 
+.icon-button:hover svg,
 .icon-button:focus svg {
   transform: scale(1);
 }
@@ -127,7 +127,7 @@ body {
   padding: 16px;
 }
 
-.about-page ul  {
+.about-page ul {
   padding-left: 20px;
 }
 
@@ -183,7 +183,6 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-
   .about-page {
     flex-direction: row;
     justify-content: space-between;
@@ -193,9 +192,8 @@ body {
 
   .about-page main {
     flex-basis: 70%;
-    
   }
-  
+
   .about-page aside {
     flex-basis: 25%;
   }
@@ -203,7 +201,7 @@ body {
   .about-page nav ul {
     flex-direction: column;
   }
-  
+
   .about-page nav li {
     margin: 20px 0;
   }
