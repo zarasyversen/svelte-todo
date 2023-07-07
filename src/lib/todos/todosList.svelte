@@ -2,9 +2,8 @@
   import type { TodoItem } from '../../types/TodoItem';
   import { SearchIcon, XIcon } from 'svelte-feather-icons';
 
-  // logic goes here
   export let todos: TodoItem[];
-  let filteredTodos = todos;
+  $: filteredTodos = todos;
   let isSearching = false;
   let searchTerm = '';
   let noResults = false;
@@ -70,6 +69,7 @@
       </form>
     {/if}
   </div>
+  <h2>hej</h2>
   <ul>
     {#each filteredTodos as todo}
       <li>
