@@ -1,7 +1,3 @@
-<script>
-  // logic goes here
-</script>
-
 <header class="header">
   <h1 class="header__heading">Your list of tasks</h1>
 </header>
