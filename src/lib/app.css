@@ -78,13 +78,7 @@ body {
  svg {
   width: 20px;
   height: 20px;
-  fill: var(--blue);
   transition: fill 0.3s;
-}
-
-button:hover svg,
-button:focus svg {
-  fill: var(--light-blue);
 }
 
 .icon-button {
@@ -95,7 +89,6 @@ button:focus svg {
 }
 
 .icon-button svg {
-  fill: var(--white);
   margin-left: 10px;
   transition: transform .3s;
   transform: scale(.9);
@@ -103,7 +96,6 @@ button:focus svg {
 
 .icon-button:hover svg, 
 .icon-button:focus svg {
-  fill: var(--white);
   transform: scale(1);
 }
 

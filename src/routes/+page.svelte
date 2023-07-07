@@ -6,6 +6,7 @@
   import EmptyList from '../lib/todos/emptyList.svelte';
   import type { TodoItem } from '../types/TodoItem';
   import AddTodo from '../lib/todos/addTodo.svelte';
+    import TodosList from '$lib/todos/todosList.svelte';
 
   //const todos: TodoItem[] = [{name: 'hej', id:1, completed: false}, {name: 'hej2', id:3, completed: true}];
   let todos: TodoItem[] = [];
@@ -64,11 +65,7 @@
         <EmptyList />
       {/if}
       <AddTodo on:addTodo={handleNewTodo} hasTodos={todos.length > 0} />
-      {#each todos as todo}
-        <li>
-          {todo.name}
-        </li>
-      {/each}
+      <TodosList todos={todos}/>
     </div>
   </div>
 </div>
