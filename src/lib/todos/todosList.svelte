@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { TodoItem } from '../../types/TodoItem';
   import { SearchIcon, XIcon } from 'svelte-feather-icons';
+  import TodoListItem from './todoListItem.svelte';
 
   export let todos: TodoItem[];
   $: filteredTodos = todos;
@@ -69,18 +70,9 @@
       </form>
     {/if}
   </div>
-  <h2>hej</h2>
   <ul>
-    {#each filteredTodos as todo}
-      <li>
-        {todo.name}
-        <!-- <TodoItem
-            key={todo.id}
-            todo={todo}
-            handleChangeProps={props.handleChangeProps}
-            deleteTodoProps={props.deleteTodoProps}
-            setUpdate={props.setUpdate}/> -->
-      </li>
+    {#each filteredTodos as todo (todo.id)}
+      <TodoListItem {todo} on:completeTodo on:editTodo on:deleteTodo />
     {/each}
   </ul>
 </div>

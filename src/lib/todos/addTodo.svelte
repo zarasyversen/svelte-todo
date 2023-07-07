@@ -1,6 +1,5 @@
 <script lang="ts">
   export let hasTodos: boolean;
-  let isAddingTodo = false;
   let inputText = '';
 
   import { createEventDispatcher } from 'svelte';
@@ -56,13 +55,13 @@
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
   }
-  
+
   .addTodoForm__label {
     flex-basis: 100%;
     display: block;
     margin-bottom: 5px;
   }
-  
+
   .addTodoForm__button {
     width: 100%;
     flex-basis: 100%;

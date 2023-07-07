@@ -6,9 +6,9 @@
   import EmptyList from '../lib/todos/emptyList.svelte';
   import type { TodoItem } from '../types/TodoItem';
   import AddTodo from '../lib/todos/addTodo.svelte';
-    import TodosList from '$lib/todos/todosList.svelte';
+  import TodosList from '$lib/todos/todosList.svelte';
 
-  //const todos: TodoItem[] = [{name: 'hej', id:1, completed: false}, {name: 'hej2', id:3, completed: true}];
+  //let todos: TodoItem[] = [{name: 'hej', id:1, completed: false}, {name: 'hej2', id:3, completed: true}];
   let todos: TodoItem[] = [];
 
   const getInitialTodos = () => {
@@ -16,7 +16,7 @@
     return temp ? JSON.parse(temp) : [];
   };
 
-  const handleNewTodo = (event: any) => {
+  const handleNewTodo = (event: CustomEvent) => {
     addNewTodoItem(event.detail.title);
   };
 
@@ -30,6 +30,34 @@
       time: getCurrentTime()
     };
     setTodos(newTodo);
+  };
+
+  const completingTodo = (event: CustomEvent) => {
+    todos = todos.map((todo) => {
+      if (todo.id === event.detail.id) {
+        return {
+          ...todo,
+          completed: !todo.completed
+        };
+      }
+      return todo;
+    });
+  };
+
+  const deletingTodo = (event: CustomEvent) => {
+    todos = todos.filter((todo) => todo.id !== event.detail.id);
+  };
+
+  const editingTodo = (event: CustomEvent) => {
+    todos = todos.map((todo) => {
+      if (todo.id === event.detail.id) {
+        todo.name = event.detail.newTitle;
+        todo.updated = true;
+        todo.day = getCurrentDay();
+        todo.time = getCurrentTime();
+      }
+      return todo;
+    });
   };
 
   const getCurrentDay = () => {
@@ -65,7 +93,12 @@
         <EmptyList />
       {/if}
       <AddTodo on:addTodo={handleNewTodo} hasTodos={todos.length > 0} />
-      <TodosList todos={todos}/>
+      <TodosList
+        {todos}
+        on:completeTodo={completingTodo}
+        on:editTodo={editingTodo}
+        on:deleteTodo={deletingTodo}
+      />
     </div>
   </div>
 </div>
