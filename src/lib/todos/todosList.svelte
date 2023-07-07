@@ -19,7 +19,7 @@
   const searchTodos = () => {
     if (searchTerm) {
       const matchedTodos = todos.filter((item) => {
-        return item.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+        return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
       });
 
       if (matchedTodos.length > 0) {

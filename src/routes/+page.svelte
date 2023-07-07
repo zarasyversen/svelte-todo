@@ -18,7 +18,7 @@
   const addNewTodoItem = (title: string) => {
     const newTodo: TodoItem = {
       id: Date.now(),
-      name: title,
+      title: title,
       completed: false,
       updated: false,
       day: getCurrentDay(),
@@ -47,7 +47,7 @@
   const editingTodo = (event: CustomEvent) => {
     todos = todos.map((todo) => {
       if (todo.id === event.detail.id) {
-        todo.name = event.detail.newTitle;
+        todo.title = event.detail.newTitle;
         todo.updated = true;
         todo.day = getCurrentDay();
         todo.time = getCurrentTime();

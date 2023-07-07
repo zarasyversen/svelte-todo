@@ -1,6 +1,6 @@
 export type TodoItem = {
     id: number,
-    name: string,
+    title: string,
     completed: boolean,
     day?: string | undefined,
     updated?: boolean | undefined,

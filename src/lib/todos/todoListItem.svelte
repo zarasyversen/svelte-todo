@@ -4,7 +4,7 @@
   import { createEventDispatcher } from 'svelte';
   export let todo: TodoItem;
   let isEditing = false;
-  let editInput = todo.name;
+  let editInput = todo.title;
 
   const dispatch = createEventDispatcher();
 
@@ -50,7 +50,7 @@
       />
     </label>
     <div class="details" class:is-complete={todo.completed}>
-      <p>{todo.name}</p>
+      <p>{todo.title}</p>
       <small>
         {#if todo.updated}
           Updated
