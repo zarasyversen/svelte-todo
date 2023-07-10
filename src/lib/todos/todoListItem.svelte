@@ -85,7 +85,7 @@
     <input
       type="text"
       id={`edit-${todo.id}`}
-      class="textInput"
+      class="input-text input-edit"
       bind:value={editInput}
       on:change={() => handleEdit(todo.id)}
       on:keydown={(e) => updateEdit(e)}
@@ -163,11 +163,7 @@
     stroke: var(--blue);
   }
 
-  .textInput {
-    width: 100%;
-    padding: 10px;
-    border: var(--border);
+  .input-edit {
     margin-bottom: 20px;
-    font-size: 1.2rem;
   }
 </style>

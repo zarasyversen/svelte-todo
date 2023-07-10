@@ -15,8 +15,8 @@ test('Complete todo', async ({ page }) => {
 test('Edit todo', async ({ page }) => {
   await createNewTodo(page);
   await page.getByLabel('Edit this todo').click();
-  await page.locator('.textInput').fill('Edited the new todo');
-  await page.locator('.textInput').press('Enter');
+  await page.locator('.input-edit').fill('Edited the new todo');
+  await page.locator('.input-edit').press('Enter');
   await expect(page.getByText('Edited the new todo')).toBeVisible();
 });
 

@@ -6,8 +6,8 @@
   import AddTodo from '../lib/todos/addTodo.svelte';
   import TodosList from '$lib/todos/todosList.svelte';
 
-  import { storedTodos } from '../lib/store';
-  let todos = $storedTodos.sort((a, b) => b.id - a.id);
+  import { storedTodos, todosLoaded } from '../lib/store';
+  let todos = $storedTodos ? $storedTodos.sort((a, b) => b.id - a.id) : [];
 
   const handleNewTodo = (event: CustomEvent) => {
     addNewTodoItem(event.detail.title);
@@ -71,7 +71,7 @@
   };
 
   const setTodos = (newTodo: TodoItem) => {
-    todos = [...todos, newTodo];
+    todos = [newTodo, ...todos];
     storedTodos.set(todos);
   };
 </script>
@@ -80,18 +80,22 @@
   <div class="inner">
     <div class="inner-top">
       <Header />
-      <Counter {todos} />
-      {#if todos.length === 0}
-        <EmptyList />
-      {/if}
-      <AddTodo on:addTodo={handleNewTodo} hasTodos={todos.length > 0} />
-      {#if todos.length > 0}
-        <TodosList
-          {todos}
-          on:completeTodo={completingTodo}
-          on:editTodo={editingTodo}
-          on:deleteTodo={deletingTodo}
-        />
+      {#if $todosLoaded}
+        <Counter {todos} />
+        {#if todos.length === 0}
+          <EmptyList />
+        {/if}
+        <AddTodo on:addTodo={handleNewTodo} hasTodos={todos.length > 0} />
+        {#if todos.length > 0}
+          <TodosList
+            {todos}
+            on:completeTodo={completingTodo}
+            on:editTodo={editingTodo}
+            on:deleteTodo={deletingTodo}
+          />
+        {/if}
+      {:else}
+          <p class="empty">Loading...</p>
       {/if}
     </div>
   </div>

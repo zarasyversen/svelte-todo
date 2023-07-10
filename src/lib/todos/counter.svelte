@@ -3,19 +3,18 @@
 
   export let todos: TodoItem[];
 
-  $: totalCount = todos.length;
   $: completedTasks = todos.filter((todo) => todo.completed === true).length;
-  const noTasks = totalCount === 0;
+  $: noTasks = todos.length === 0;
 </script>
 
 {#if !noTasks}
-  <p class="taskCounter">
-    Hey, you have completed {completedTasks} of {totalCount} tasks!
+  <p class="counter">
+    Hey, you have completed {completedTasks} of {todos.length} tasks!
   </p>
 {/if}
 
 <style>
-  .taskCounter {
+  .counter {
     margin: 10px 0;
     text-align: center;
   }

@@ -8,7 +8,7 @@
 :root {
   --base: #f9dfdc;
   --darker-base: #cab4b1;
-  --light-blue: #0a81ab;
+  --light-blue: #086a8d;
   --blue: #0c4271;
   --black: #000000;
   --white: #ffffff;
@@ -55,6 +55,11 @@ body {
   margin-bottom: 30px;
 }
 
+.empty {
+  margin: 10px 0;
+  text-align: center;
+}
+
 .button {
   background: var(--blue);
   padding: 10px 20px;
@@ -74,6 +79,8 @@ body {
 .button:focus {
   outline: 1px dashed var(--black);
 }
+
+
 
 svg {
   width: 20px;
